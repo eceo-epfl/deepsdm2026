@@ -1,0 +1,31 @@
+---
+interface Props {
+  name: string;
+  affiliation: string;
+  bioShort: string;
+  status: 'confirmed' | 'invited';
+  photo?: string;
+}
+
+const { name, affiliation, bioShort, status, photo } = Astro.props;
+const initials = name
+  .split(' ')
+  .map((part) => part[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
+---
+
+<article class="speaker-card">
+  {photo ? (
+    <img loading="lazy" src={photo} alt={name} class="speaker-avatar" />
+  ) : (
+    <div class="speaker-avatar speaker-avatar-fallback" aria-hidden="true">{initials}</div>
+  )}
+  <div>
+    <p class={`status status-${status}`}>{status}</p>
+    <h3>{name}</h3>
+    <p class="speaker-affiliation">{affiliation}</p>
+    <p>{bioShort}</p>
+  </div>
+</article>

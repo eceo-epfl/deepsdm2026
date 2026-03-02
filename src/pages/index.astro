@@ -1,0 +1,298 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import ProgramTable from '../components/ProgramTable.astro';
+import Section from '../components/Section.astro';
+import SpeakerCard from '../components/SpeakerCard.astro';
+
+const [eventEntry] = await getCollection('event');
+const event = eventEntry.data;
+
+const [programEntry] = await getCollection('program');
+const program = programEntry.data.items.sort((a, b) => a.startTime.localeCompare(b.startTime));
+
+const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path.replace(/^\/+/, '')}`;
+const [speakerEntry] = await getCollection('speakers');
+const speakers = speakerEntry.data.items.map((speaker) => ({
+  ...speaker,
+  photo: speaker.photo?.startsWith('/') ? withBase(speaker.photo) : speaker.photo
+}));
+const keynoteSpeakers = speakers.filter((speaker) => speaker.id === 'laura-pollock');
+const speakersById = Object.fromEntries(speakers.map((speaker) => [speaker.id, speaker]));
+const localAssetPath = (path: string) => withBase(path);
+const organizerPhotoSrc = (photo?: string) => (photo?.startsWith('/') ? localAssetPath(photo) : photo);
+const eceoLogoSrc = localAssetPath('eceo_logo.png');
+
+const [organizerEntry] = await getCollection('organizers');
+const organizerOrder = ['Devis Tuia', 'Chiara Vanalli', 'Nina van Tiel', 'Robin Zbinden'];
+const organizerRank = (name: string) => {
+  const index = organizerOrder.indexOf(name);
+  return index === -1 ? Number.MAX_SAFE_INTEGER : index;
+};
+const organizers = organizerEntry.data.items.sort((a, b) => organizerRank(a.name) - organizerRank(b.name));
+const alexisJoly = organizers.find((organizer) => organizer.name === 'Alexis Joly');
+const pierreBonnet = organizers.find((organizer) => organizer.name === 'Pierre Bonnet');
+const firstLineOrganizers = organizers.filter(
+  (organizer) => organizer.name !== 'Alexis Joly' && organizer.name !== 'Pierre Bonnet'
+);
+---
+
+<BaseLayout
+  title={`${event.title} | ${event.date}`}
+  description="Official website for DeepSDM Day 2026 in Sion, Switzerland: keynotes, talks, panel, and poster session."
+>
+  <Hero
+    title={event.title}
+    date={event.date}
+    location={event.location}
+    heroText={event.heroText}
+    subtitle={event.subtitle}
+    ctaUrl={event.ctaUrl}
+    ctaLabel={event.ctaLabel}
+  />
+
+  <main id="main-content">
+    <Section id="about" title="About">
+      <div class="surface">
+        <p> Website under construction
+        </p>
+        <p>
+        </p>
+      </div>
+    </Section>
+
+    <Section id="program" title="Program" subtitle="Temporary, will be updated">
+      <ProgramTable items={program} speakersById={speakersById} />
+    </Section>
+
+    <Section id="speakers" title="Keynote speakers" subtitle="Other speakers will be added soon">
+      <div class="speaker-grid">
+        {keynoteSpeakers.map((speaker) => <SpeakerCard {...speaker} />)}
+      </div>
+    </Section>
+
+    <Section id="venue" title="Venue">
+      <div class="surface">
+        <p>{event.venueDetails}</p>
+        <p>
+          <a href="https://maps.app.goo.gl/cMvhRoQJPkSTV9F38" target="_blank" rel="noopener noreferrer">
+            Alpole EPFL - Route des Ronquos 86, 1950 Sion
+          </a>
+        </p>
+        <div class="map-wrap">
+          <iframe
+            title="Alpole Sion map"
+            src="https://www.google.com/maps?q=Alpole+Sion&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <p>
+          Event date is confirmed for <strong>{event.date}</strong>. Final room information will be added as soon as they are confirmed.
+        </p>
+      </div>
+    </Section>
+
+    <Section id="organizers" title="Organizers" subtitle="Team behind DeepSDM Day 2026">
+      <div class="surface">
+        <div class="organizer-stack">
+          <div class="organizer-row">
+            <ul class="organizer-names">
+              {firstLineOrganizers.map((organizer) => (
+                <li>
+                  {organizer.link ? (
+                    <a class="organizer-person-link" href={organizer.link} target="_blank" rel="noopener noreferrer">
+                      {organizer.photo ? (
+                        <img
+                          class="organizer-avatar"
+                          src={organizerPhotoSrc(organizer.photo)}
+                          alt={organizer.name}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="organizer-avatar organizer-avatar-fallback" aria-hidden="true">
+                          {organizer.name
+                            .split(' ')
+                            .map((part) => part[0])
+                            .join('')
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </span>
+                      )}
+                      <span>{organizer.name}</span>
+                    </a>
+                  ) : (
+                    <>
+                      {organizer.photo ? (
+                        <img
+                          class="organizer-avatar"
+                          src={organizerPhotoSrc(organizer.photo)}
+                          alt={organizer.name}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="organizer-avatar organizer-avatar-fallback" aria-hidden="true">
+                          {organizer.name
+                            .split(' ')
+                            .map((part) => part[0])
+                            .join('')
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </span>
+                      )}
+                      <span>{organizer.name}</span>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <a
+              class="lab-logo-link"
+              href="https://www.epfl.ch/labs/eceo/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open ECEO laboratory website"
+            >
+              <img class="lab-logo" src={eceoLogoSrc} alt="ECEO laboratory logo" loading="lazy" />
+            </a>
+          </div>
+          {alexisJoly && (
+            <div class="organizer-row">
+              <ul class="organizer-names">
+                <li>
+                  {alexisJoly.link ? (
+                    <a class="organizer-person-link" href={alexisJoly.link} target="_blank" rel="noopener noreferrer">
+                      {alexisJoly.photo ? (
+                        <img
+                          class="organizer-avatar"
+                          src={organizerPhotoSrc(alexisJoly.photo)}
+                          alt={alexisJoly.name}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="organizer-avatar organizer-avatar-fallback" aria-hidden="true">
+                          {alexisJoly.name
+                            .split(' ')
+                            .map((part) => part[0])
+                            .join('')
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </span>
+                      )}
+                      <span>{alexisJoly.name}</span>
+                    </a>
+                  ) : (
+                    <>
+                      {alexisJoly.photo ? (
+                        <img
+                          class="organizer-avatar"
+                          src={organizerPhotoSrc(alexisJoly.photo)}
+                          alt={alexisJoly.name}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="organizer-avatar organizer-avatar-fallback" aria-hidden="true">
+                          {alexisJoly.name
+                            .split(' ')
+                            .map((part) => part[0])
+                            .join('')
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </span>
+                      )}
+                      <span>{alexisJoly.name}</span>
+                    </>
+                  )}
+                </li>
+              </ul>
+              <a
+                class="lab-logo-link"
+                href="https://www.lirmm.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open LIRMM website"
+              >
+                <img
+                  class="lab-logo lab-logo-lirmm"
+                  src="https://www.lirmm.fr/wp-content/uploads/sites/3/2021/04/Logo-LIRMM-long_329x113.png"
+                  alt="LIRMM logo"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          )}
+          {pierreBonnet && (
+            <div class="organizer-row">
+              <ul class="organizer-names">
+                <li>
+                  {pierreBonnet.link ? (
+                    <a class="organizer-person-link" href={pierreBonnet.link} target="_blank" rel="noopener noreferrer">
+                      {pierreBonnet.photo ? (
+                        <img
+                          class="organizer-avatar"
+                          src={organizerPhotoSrc(pierreBonnet.photo)}
+                          alt={pierreBonnet.name}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="organizer-avatar organizer-avatar-fallback" aria-hidden="true">
+                          {pierreBonnet.name
+                            .split(' ')
+                            .map((part) => part[0])
+                            .join('')
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </span>
+                      )}
+                      <span>{pierreBonnet.name}</span>
+                    </a>
+                  ) : (
+                    <>
+                      {pierreBonnet.photo ? (
+                        <img
+                          class="organizer-avatar"
+                          src={organizerPhotoSrc(pierreBonnet.photo)}
+                          alt={pierreBonnet.name}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <span class="organizer-avatar organizer-avatar-fallback" aria-hidden="true">
+                          {pierreBonnet.name
+                            .split(' ')
+                            .map((part) => part[0])
+                            .join('')
+                            .slice(0, 2)
+                            .toUpperCase()}
+                        </span>
+                      )}
+                      <span>{pierreBonnet.name}</span>
+                    </>
+                  )}
+                </li>
+              </ul>
+              <a
+                class="lab-logo-link"
+                href="https://www.cirad.fr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open CIRAD website"
+              >
+                <img
+                  class="lab-logo lab-logo-cirad"
+                  src="https://www.cirad.fr/var/cirad/storage/images/_aliases/reference/9/1/0/3/3019-17-fre-FR/ddb97f6d95c4-logo-cirad-fr.png"
+                  alt="CIRAD logo"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </Section>
+
+  </main>
+
+  <Footer email={event.contactEmail} />
+</BaseLayout>

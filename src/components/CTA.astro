@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  ctaUrl: string;
+  ctaLabel: string;
+}
+
+const { title, text, ctaUrl, ctaLabel } = Astro.props;
+---
+
+<section class="cta container" aria-labelledby="cta-title">
+  <h2 id="cta-title">{title}</h2>
+  <p>{text}</p>
+  <a class="button button-primary" href={ctaUrl} target="_blank" rel="noopener noreferrer">{ctaLabel}</a>
+</section>

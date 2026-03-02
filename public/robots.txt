@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://deepsdm-2026.netlify.app/sitemap-index.xml

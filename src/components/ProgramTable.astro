@@ -1,0 +1,45 @@
+---
+interface ProgramItem {
+  startTime: string;
+  endTime: string;
+  type: 'keynote' | 'talk' | 'panel' | 'poster' | 'break';
+  title: string;
+  speakerIds: string[];
+}
+
+interface Speaker {
+  id: string;
+  name: string;
+}
+
+interface Props {
+  items: ProgramItem[];
+  speakersById: Record<string, Speaker>;
+}
+
+const { items, speakersById } = Astro.props;
+
+const labels = {
+  keynote: 'Keynote',
+  talk: 'Talk',
+  panel: 'Panel',
+  poster: 'Poster',
+  break: 'Break'
+};
+---
+
+<div class="program-grid" role="table" aria-label="Event program">
+  {items.map((item) => {
+    const speakerNames = item.speakerIds.map((id) => speakersById[id]?.name).filter(Boolean);
+    return (
+      <article class="program-item" role="row">
+        <p class="program-time" role="cell">{item.startTime}-{item.endTime}</p>
+        <div role="cell">
+          <p class={`pill pill-${item.type}`}>{labels[item.type]}</p>
+          <h3>{item.title}</h3>
+          {speakerNames.length > 0 && <p class="program-speakers">{speakerNames.join(', ')}</p>}
+        </div>
+      </article>
+    );
+  })}
+</div>

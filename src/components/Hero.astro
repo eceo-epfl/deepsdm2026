@@ -1,0 +1,55 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  location: string;
+  heroText: string;
+  subtitle: string;
+  ctaUrl: string;
+  ctaLabel: string;
+}
+
+const { title, date, location, heroText, subtitle, ctaUrl, ctaLabel } = Astro.props;
+const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path.replace(/^\/+/, '')}`;
+const logoSrc = withBase('logo-deepsdmday.png');
+---
+
+<header class="hero" id="top">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="#top" class="brand" aria-label="DeepSDM Day 2026">
+      <img src={logoSrc} alt="DeepSDM Day 2026 logo" />
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#program">Program</a>
+      <a href="#speakers">Keynote speakers</a>
+      <a href="#venue">Venue</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="hero-content container">
+    <p class="kicker">{date}</p>
+    <h1>{title}</h1>
+    <p class="hero-meta">{location}</p>
+    <p class="hero-text">{heroText}</p>
+    <p class="hero-subtitle">{subtitle}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href={ctaUrl} target="_blank" rel="noopener noreferrer">{ctaLabel}</a>
+      <!-- <a class="button button-ghost" href="#program">Explore program</a> -->
+    </div>
+  </div>
+</header>
+
+<style>
+  .kicker {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .hero-meta {
+    font-size: 1.25rem; 
+    font-weight: bold;
+  }
+</style>

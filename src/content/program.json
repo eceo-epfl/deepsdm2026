@@ -1,0 +1,77 @@
+[
+  {
+    "id": "program",
+    "items": [
+      {
+        "startTime": "09:00",
+        "endTime": "09:30",
+        "type": "break",
+        "title": "Gathering",
+        "speakerIds": []
+      },
+      {
+        "startTime": "09:30",
+        "endTime": "10:15",
+        "type": "keynote",
+        "title": "Keynote 1 (to be confirmed)",
+        "speakerIds": ["laura-pollock"]
+      },
+      {
+        "startTime": "10:30",
+        "endTime": "11:15",
+        "type": "talk",
+        "title": "Two short talks",
+        "speakerIds": []
+      },
+      {
+        "startTime": "11:00",
+        "endTime": "11:30",
+        "type": "break",
+        "title": "Coffee break",
+        "speakerIds": []
+      },
+      {
+        "startTime": "11:30",
+        "endTime": "12:30",
+        "type": "talk",
+        "title": "Three short talks",
+        "speakerIds": []
+      },
+      {
+        "startTime": "12:30",
+        "endTime": "13:30",
+        "type": "break",
+        "title": "Lunch",
+        "speakerIds": []
+      },
+      {
+        "startTime": "13:30",
+        "endTime": "14:15",
+        "type": "keynote",
+        "title": "Keynote 2 (to be confirmed)",
+        "speakerIds": []
+      },
+      {
+        "startTime": "14:15",
+        "endTime": "15:00",
+        "type": "talk",
+        "title": "Discussion / more short talks",
+        "speakerIds": []
+      },
+      {
+        "startTime": "15:00",
+        "endTime": "17:00",
+        "type": "poster",
+        "title": "Poster session with coffee break",
+        "speakerIds": []
+      },
+      {
+        "startTime": "17:00",
+        "endTime": "",
+        "type": "break",
+        "title": "Join us for a historical walk in Sion and dinner!",
+        "speakerIds": []
+      }
+    ]
+  }
+]

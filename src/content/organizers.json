@@ -1,0 +1,49 @@
+[
+  {
+    "id": "organizers",
+    "items": [
+      {
+        "name": "Devis Tuia",
+        "role": "Organizer",
+        "institution": "ECEO Lab, EPFL",
+        "link": "https://people.epfl.ch/devis.tuia?lang=en",
+        "photo": "https://people.epfl.ch/private/common/photos/links/150680.jpg"
+      },
+      {
+        "name": "Chiara Vanalli",
+        "role": "Organizer",
+        "institution": "ECEO Lab, EPFL",
+        "link": "https://people.epfl.ch/chiara.vanalli?lang=en",
+        "photo": "https://people.epfl.ch/private/common/photos/links/393304.jpg"
+      },
+      {
+        "name": "Nina van Tiel",
+        "role": "Organizer",
+        "institution": "ECEO Lab, EPFL",
+        "link": "https://people.epfl.ch/nina.vantiel?lang=en",
+        "photo": "https://people.epfl.ch/private/common/photos/links/236860.jpg"
+      },
+      {
+        "name": "Robin Zbinden",
+        "role": "Organizer",
+        "institution": "ECEO Lab, EPFL",
+        "link": "https://people.epfl.ch/robin.zbinden?lang=en",
+        "photo": "https://people.epfl.ch/private/common/photos/links/274236.jpg"
+      },
+      {
+        "name": "Alexis Joly",
+        "role": "Organizer",
+        "institution": "Inria, Montpellier University, LIRMM",
+        "link": "https://sites.google.com/view/alexis-joly-inria/home",
+        "photo": "/alexis-joly.png"
+      },
+      {
+        "name": "Pierre Bonnet",
+        "role": "Organizer",
+        "institution": "CIRAD",
+        "link": "https://agents.cirad.fr/Pierre+BONNET",
+        "photo": "https://plantnet.org/wp-content/uploads/2023/11/image-20221012-11-obdm4k.jpg"
+      }
+    ]
+  }
+]

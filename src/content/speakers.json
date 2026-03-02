@@ -1,0 +1,15 @@
+[
+  {
+    "id": "speakers",
+    "items": [
+      {
+        "id": "laura-pollock",
+        "name": "Laura Pollock",
+        "affiliation": "Associate Professor at McGill University",
+        "bioShort": "",
+        "status": "invited",
+        "photo": "/laura-pollock.jpg"
+      }
+    ]
+  }
+]
