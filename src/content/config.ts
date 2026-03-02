@@ -62,18 +62,10 @@ const organizers = defineCollection({
   })
 });
 
-const faq = defineCollection({
-  type: 'data',
-  schema: z.object({
-    q: z.string(),
-    a: z.string()
-  })
-});
 
 export const collections = {
   event,
   program,
   speakers,
-  organizers,
-  faq
+  organizers
 };

@@ -8,7 +8,7 @@ interface Props {
 }
 
 const { title, description, canonical } = Astro.props;
-const baseUrl = new URL(Astro.site ?? 'https://deepsdm-2026.netlify.app');
+const baseUrl = new URL(Astro.site ?? 'https://eceo-epfl.github.io');
 const pageUrl = canonical ? new URL(canonical, baseUrl).toString() : new URL(Astro.url.pathname, baseUrl).toString();
 const withBase = (path: string) => `${import.meta.env.BASE_URL.replace(/\/?$/, '/')}${path.replace(/^\/+/, '')}`;
 const ogImage = new URL(withBase('og-image.svg'), baseUrl).toString();

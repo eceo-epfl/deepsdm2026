@@ -26,22 +26,10 @@ npm run build
 All event updates should be made in `src/content/`.
 
 - Global event settings: `src/content/event/config.json`
-- Program items: `src/content/program/*.json`
-- Speakers: `src/content/speakers/*.json`
-- Organizers: `src/content/organizers/*.json`
-- FAQ: `src/content/faq/*.json`
+- Program items: `src/content/program.json`
+- Speakers: `src/content/speakers.json`
+- Organizers: `src/content/organizers.json`
 
 The build fails if content does not match schema rules from `src/content/config.ts`.
 
-## Routes
 
-- `/` main landing page
-- `/code-of-conduct`
-- `/privacy`
-
-## Deployment
-
-- Netlify build command: `npm run build`
-- Publish directory: `dist`
-- `netlify.toml` includes base security headers
-- GitHub Action in `.github/workflows/ci.yml` verifies pull requests with `npm ci` + `npm run build`
