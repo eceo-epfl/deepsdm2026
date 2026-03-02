@@ -2,12 +2,13 @@
 interface Props {
   name: string;
   affiliation: string;
+  link?: string;
   bioShort: string;
   status: 'confirmed' | 'invited';
   photo?: string;
 }
 
-const { name, affiliation, bioShort, status, photo } = Astro.props;
+const { name, affiliation, link, bioShort, status, photo } = Astro.props;
 const initials = name
   .split(' ')
   .map((part) => part[0])
@@ -16,16 +17,32 @@ const initials = name
   .toUpperCase();
 ---
 
-<article class="speaker-card">
-  {photo ? (
-    <img loading="lazy" src={photo} alt={name} class="speaker-avatar" />
-  ) : (
-    <div class="speaker-avatar speaker-avatar-fallback" aria-hidden="true">{initials}</div>
-  )}
-  <div>
-    <p class={`status status-${status}`}>{status}</p>
-    <h3>{name}</h3>
-    <p class="speaker-affiliation">{affiliation}</p>
-    <p>{bioShort}</p>
-  </div>
-</article>
+{link ? (
+  <a class="speaker-card speaker-card-link" href={link} target="_blank" rel="noopener noreferrer">
+    {photo ? (
+      <img loading="lazy" src={photo} alt={name} class="speaker-avatar" />
+    ) : (
+      <div class="speaker-avatar speaker-avatar-fallback" aria-hidden="true">{initials}</div>
+    )}
+    <div>
+      <p class={`status status-${status}`}>{status}</p>
+      <h3>{name}</h3>
+      <p class="speaker-affiliation">{affiliation}</p>
+      <p>{bioShort}</p>
+    </div>
+  </a>
+) : (
+  <article class="speaker-card">
+    {photo ? (
+      <img loading="lazy" src={photo} alt={name} class="speaker-avatar" />
+    ) : (
+      <div class="speaker-avatar speaker-avatar-fallback" aria-hidden="true">{initials}</div>
+    )}
+    <div>
+      <p class={`status status-${status}`}>{status}</p>
+      <h3>{name}</h3>
+      <p class="speaker-affiliation">{affiliation}</p>
+      <p>{bioShort}</p>
+    </div>
+  </article>
+)}

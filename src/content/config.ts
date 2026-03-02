@@ -39,6 +39,7 @@ const speakers = defineCollection({
         id: z.string(),
         name: z.string(),
         affiliation: z.string(),
+        link: z.string().url().optional(),
         bioShort: z.string(),
         photo: z.string().optional(),
         status: z.enum(['confirmed', 'invited'])
