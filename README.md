@@ -1,12 +1,6 @@
 # DeepSDM Event 2026 website
 
-Static event website built with Astro and deployed on Netlify.
-
-## Stack
-
-- Astro (static output)
-- Netlify hosting/CDN
-- Content collections for event data
+Static event website built with Astro and deployed on github.
 
 ## Local development
 
@@ -15,10 +9,10 @@ npm install
 npm run dev
 ```
 
-Build check:
+Deploy website:
 
 ```bash
-npm run build
+npm run build && npm run deploy  
 ```
 
 ## Content editing runbook
