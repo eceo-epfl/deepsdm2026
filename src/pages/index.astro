@@ -19,7 +19,7 @@ const speakers = speakerEntry.data.items.map((speaker) => ({
   ...speaker,
   photo: speaker.photo?.startsWith('/') ? withBase(speaker.photo) : speaker.photo
 }));
-const keynoteSpeakers = speakers.filter((speaker) => speaker.id === 'laura-pollock');
+const keynoteSpeakers = speakers;
 const speakersById = Object.fromEntries(speakers.map((speaker) => [speaker.id, speaker]));
 const localAssetPath = (path: string) => withBase(path);
 const organizerPhotoSrc = (photo?: string) => (photo?.startsWith('/') ? localAssetPath(photo) : photo);
@@ -57,20 +57,12 @@ const inriaLogoDataUri =
   />
 
   <main id="main-content">
-    <Section id="about" title="About">
-      <div class="surface">
-        <p> Website under construction
-        </p>
-        <p>
-        </p>
-      </div>
-    </Section>
 
     <Section id="program" title="Program" subtitle="Temporary, will be updated">
       <ProgramTable items={program} speakersById={speakersById} />
     </Section>
 
-    <Section id="speakers" title="Keynote speakers" subtitle="Other speakers will be added soon">
+    <Section id="speakers" title="Keynote speakers">
       <div class="speaker-grid">
         {keynoteSpeakers.map((speaker) => <SpeakerCard {...speaker} />)}
       </div>
