@@ -6,14 +6,14 @@
         "startTime": "09:00",
         "endTime": "09:30",
         "type": "break",
-        "title": "Gathering",
+        "title": "Welcome and registration",
         "speakerIds": []
       },
       {
         "startTime": "09:30",
         "endTime": "10:15",
         "type": "keynote",
-        "title": "Keynote 1 (to be confirmed)",
+        "title": "Keynote 1",
         "speakerIds": ["laura-pollock"]
       },
       {
@@ -48,14 +48,14 @@
         "startTime": "13:30",
         "endTime": "14:15",
         "type": "keynote",
-        "title": "Keynote 2 (to be confirmed)",
-        "speakerIds": []
+        "title": "Keynote 2",
+        "speakerIds": ["alexis-joly"]
       },
       {
         "startTime": "14:15",
         "endTime": "15:00",
         "type": "talk",
-        "title": "Discussion / more short talks",
+        "title": "two short talks",
         "speakerIds": []
       },
       {

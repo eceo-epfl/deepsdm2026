@@ -10,6 +10,15 @@
         "bioShort": "",
         "status": "invited",
         "photo": "/laura-pollock.jpg"
+      },
+      {
+        "id": "alexis-joly",
+        "name": "Alexis Joly",
+        "affiliation": "Research Director at Inria",
+        "link": "https://sites.google.com/view/alexis-joly-inria/home",
+        "bioShort": "",
+        "status": "invited",
+        "photo": "/alexis-joly.png"
       }
     ]
   }
