@@ -1,6 +1,6 @@
 # DeepSDM Event 2026 website
 
-Static event website built with Astro and deployed on github.
+Website: https://eceo-epfl.github.io/deepsdm2026/
 
 ## Local development
 
