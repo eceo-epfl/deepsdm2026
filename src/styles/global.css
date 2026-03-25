@@ -139,7 +139,7 @@ h1 {
   margin: 0.5rem 0 0;
   color: var(--muted);
   max-width: none;
-  white-space: nowrap;
+  white-space: pre-line;
 }
 
 .hero-actions {
