@@ -70,7 +70,7 @@ img {
 }
 
 .hero {
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
   min-height: auto;
   animation: fade-in 0.8s ease;
 }
@@ -181,11 +181,11 @@ a:focus-visible {
 }
 
 .section {
-  padding: 3rem 0;
+  padding: 1rem 0;
 }
 
 .section-head {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .section-head h2 {

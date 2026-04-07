@@ -71,11 +71,6 @@ const inriaLogoDataUri =
     <Section id="venue" title="Venue">
       <div class="surface">
         <p>{event.venueDetails}</p>
-        <p>
-          <a href="https://maps.app.goo.gl/cMvhRoQJPkSTV9F38" target="_blank" rel="noopener noreferrer">
-            Alpole EPFL - Route des Ronquos 86, 1950 Sion
-          </a>
-        </p>
         <div class="map-wrap">
           <iframe
             title="Alpole Sion map"
@@ -84,11 +79,40 @@ const inriaLogoDataUri =
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <p>
-          Event date is confirmed for <strong>{event.date}</strong>. Final room information will be added as soon as they are confirmed.
-        </p>
       </div>
     </Section>
+
+    <Section id="travel-information" title="Travel information">
+      <div class="surface">
+        <p>
+          The Alpole building of EPFL Valais is located a few minutes away from the Sion train station. There are direct trains connecting
+          Geneva and Lausanne to Sion, and only one connection is required from Zurich. Geneva and Zurich are the closest airports.
+        </p>
+        <p><strong>Partner hotels</strong></p>
+        <p>
+          Rooms are pre-booked at preferential prices in these hotels for the DeepSDM day.
+          Please mention you are attending an event at EPFL in Sion when contacting them.
+        </p>
+        <ul>
+          <li>
+            <a href="https://www.hotelelitesion.ch/en/" target="_blank" rel="noopener noreferrer">Hotel Elite</a>
+            : 15 minute walk to Alpole. Breakfast included.
+            June 11th: single room for CHF 145. June 12th: single/double room for CHF 166/186.
+          </li>
+          <li>
+            <a href="https://alaia.ch/hostel/en/" target="_blank" rel="noopener noreferrer">Alaïa youth hostel</a>
+            : 5 minute walk to Alpole. No breakfast, but a common kitchen is available.
+            Double room with/without private bathroom: CHF 70/95.
+            Entire dormitory with 4 beds: CHF 120.
+          </li>
+          <li>
+            <a href="https://www.marriott.com/fr/hotels/gvaos-moxy-sion/overview/" target="_blank" rel="noopener noreferrer">Moxy hotel</a>
+            : 30 minute walk or a short bus ride to Alpole. Breakfast included.
+            Pre-booked rooms on June 11th: CHF 138 (single occupancy). No rooms available on June 12th.
+          </li>
+        </ul>
+      </div>
+    </Section>
 
     <Section id="organizers" title="Organizers" subtitle="Team behind DeepSDM Day 2026">
       <div class="surface">
