@@ -14,7 +14,7 @@
         "endTime": "10:45",
         "type": "keynote",
         "title": "Keynote 1",
-        "speakerIds": ["laura-pollock"]
+        "speakerIds": ["alexis-joly"]
       },
       {
         "startTime": "10:45",
@@ -43,7 +43,7 @@
         "endTime": "14:15",
         "type": "keynote",
         "title": "Keynote 2",
-        "speakerIds": ["alexis-joly"]
+        "speakerIds": ["laura-pollock"]
       },
       {
         "startTime": "14:15",

@@ -261,6 +261,16 @@ a:focus-visible {
   color: var(--muted);
 }
 
+.program-subtitles {
+  margin: 0.4rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.program-subtitles li {
+  margin: 0.15rem 0;
+}
+
 .program-speakers {
   margin: 0.45rem 0 0;
   color: var(--muted);

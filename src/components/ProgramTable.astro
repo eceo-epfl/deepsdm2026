@@ -32,13 +32,18 @@ const labels = {
 <div class="program-grid" role="table" aria-label="Event program">
   {items.map((item) => {
     const speakerNames = item.speakerIds.map((id) => speakersById[id]?.name).filter(Boolean);
+    const subtitleLines = (item.subtitle || '').split('\n').map((s) => s.trim()).filter(Boolean);
     return (
       <article class="program-item" role="row">
         <p class="program-time" role="cell">{item.startTime}-{item.endTime}</p>
         <div role="cell">
           <p class={`pill pill-${item.type}`}>{labels[item.type]}</p>
           <h3>{item.title}</h3>
-          {item.subtitle && <p class="program-subtitle">{item.subtitle}</p>}
+          {subtitleLines.length > 0 && (
+            <ul class="program-subtitles">
+              {subtitleLines.map((line) => <li>{line}</li>)}
+            </ul>
+          )}
           {speakerNames.length > 0 && <p class="program-speakers">{speakerNames.join(', ')}</p>}
         </div>
       </article>
