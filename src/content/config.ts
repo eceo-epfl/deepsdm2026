@@ -25,6 +25,7 @@ const program = defineCollection({
         endTime: z.string(),
         type: z.enum(['keynote', 'talk', 'panel', 'poster', 'break']),
         title: z.string(),
+        subtitle: z.string().optional(),
         speakerIds: z.array(z.string())
       })
     )

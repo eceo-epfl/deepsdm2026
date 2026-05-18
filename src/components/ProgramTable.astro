@@ -4,6 +4,7 @@ interface ProgramItem {
   endTime: string;
   type: 'keynote' | 'talk' | 'panel' | 'poster' | 'break';
   title: string;
+  subtitle?: string;
   speakerIds: string[];
 }
 
@@ -37,6 +38,7 @@ const labels = {
         <div role="cell">
           <p class={`pill pill-${item.type}`}>{labels[item.type]}</p>
           <h3>{item.title}</h3>
+          {item.subtitle && <p class="program-subtitle">{item.subtitle}</p>}
           {speakerNames.length > 0 && <p class="program-speakers">{speakerNames.join(', ')}</p>}
         </div>
       </article>

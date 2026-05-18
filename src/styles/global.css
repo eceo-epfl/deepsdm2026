@@ -255,6 +255,12 @@ a:focus-visible {
   font-size: 1.07rem;
 }
 
+.program-subtitle {
+  margin: 0.4rem 0 0;
+  white-space: pre-line;
+  color: var(--muted);
+}
+
 .program-speakers {
   margin: 0.45rem 0 0;
   color: var(--muted);
