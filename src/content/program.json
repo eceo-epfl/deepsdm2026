@@ -3,35 +3,28 @@
     "id": "program",
     "items": [
       {
-        "startTime": "09:00",
-        "endTime": "09:30",
+        "startTime": "09:30",
+        "endTime": "10:00",
         "type": "break",
         "title": "Welcome and registration",
         "speakerIds": []
       },
       {
-        "startTime": "09:30",
-        "endTime": "10:15",
+        "startTime": "10:00",
+        "endTime": "10:45",
         "type": "keynote",
         "title": "Keynote 1",
         "speakerIds": ["laura-pollock"]
       },
       {
-        "startTime": "10:15",
-        "endTime": "11:00",
-        "type": "talk",
-        "title": "Two short talks",
-        "speakerIds": []
-      },
-      {
-        "startTime": "11:00",
-        "endTime": "11:30",
+        "startTime": "10:45",
+        "endTime": "11:15",
         "type": "break",
         "title": "Coffee break",
         "speakerIds": []
       },
       {
-        "startTime": "11:30",
+        "startTime": "11:15",
         "endTime": "12:30",
         "type": "talk",
         "title": "Three short talks",
@@ -53,13 +46,13 @@
       },
       {
         "startTime": "14:15",
-        "endTime": "15:00",
+        "endTime": "15:30",
         "type": "talk",
-        "title": "Two short talks",
+        "title": "Three short talks",
         "speakerIds": []
       },
       {
-        "startTime": "15:00",
+        "startTime": "15:30",
         "endTime": "17:00",
         "type": "poster",
         "title": "Poster session with coffee break",
